@@ -1,4 +1,4 @@
-package AP1;
+package AP;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,7 +8,7 @@ public class AP1 {
 
     public static void main(String[] args) {
 
-        System.out.println("AP1");
+        System.out.println("AP");
     }
 
     /*Given an array of scores, return true if each score is equal or greater than the one before. The array will be length 2 or more.*/

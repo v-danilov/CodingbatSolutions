@@ -35,10 +35,10 @@ public class String3 {
         int not = 0;
         str = str + "X";
         for (int i = 0; i < str.length() - 2; i++) {
-            if (str.substring(i, i + 2).equals("is")){
+            if (str.substring(i, i + 2).equals("is")) {
                 is++;
             }
-            if (str.substring(i, i + 3).equals("not")){
+            if (str.substring(i, i + 3).equals("not")) {
                 not++;
             }
         }
@@ -52,12 +52,9 @@ public class String3 {
 
         for (int i = 0; i < len; i++) {
             if (str.charAt(i) == 'g') {
-                if (i > 0 && str.charAt(i-1) == 'g')
+                if (i > 0 && str.charAt(i - 1) == 'g')
                     res = true;
-                else if (i < len-1 && str.charAt(i+1) == 'g')
-                    res = true;
-                else
-                    res = false;
+                else res = i < len - 1 && str.charAt(i + 1) == 'g';
             }
         }
         return res;
@@ -68,9 +65,9 @@ public class String3 {
         int len = str.length();
         int count = 0;
 
-        for (int i = 0; i < len-2; i++){
+        for (int i = 0; i < len - 2; i++) {
             char ch = str.charAt(i);
-            if (ch == str.charAt(i+1) && ch == str.charAt(i+2))
+            if (ch == str.charAt(i + 1) && ch == str.charAt(i + 2))
                 count++;
         }
         return count;
@@ -86,7 +83,7 @@ public class String3 {
 
         for (int i = 0; i < len; i++) {
             if (Character.isDigit(str.charAt(i))) {
-                String number = str.substring(i,i + 1);
+                String number = str.substring(i, i + 1);
                 sum += Integer.parseInt(number);
             }
         }
@@ -111,11 +108,10 @@ public class String3 {
     public static String mirrorEnds(String string) {
         int len = string.length();
         String res = "";
-        for(int i = 0; i < len; i++){
-            if(string.charAt(i) == string.charAt(len - i - 1)){
-                res += string.substring(i, i+1);
-            }
-            else{
+        for (int i = 0; i < len; i++) {
+            if (string.charAt(i) == string.charAt(len - i - 1)) {
+                res += string.substring(i, i + 1);
+            } else {
                 break;
             }
         }
@@ -124,23 +120,22 @@ public class String3 {
 
     /*Given a string, return the length of the largest "block" in the string. A block is a run of adjacent chars that are the same.*/
     public static int maxBlock(String str) {
-        if(str.isEmpty()){
+        if (str.isEmpty()) {
             return 0;
         }
         int max = 0;
         int tmp = 1;
-        for(int i = 1 ; i < str.length(); i++){
-            if(str.charAt(i) == str.charAt(i - 1)){
-                tmp ++;
-            }
-            else{
-                if(tmp >= max){
+        for (int i = 1; i < str.length(); i++) {
+            if (str.charAt(i) == str.charAt(i - 1)) {
+                tmp++;
+            } else {
+                if (tmp >= max) {
                     max = tmp;
                 }
                 tmp = 1;
             }
         }
-        if(tmp > max){
+        if (tmp > max) {
             return tmp;
         }
 
@@ -155,8 +150,8 @@ public class String3 {
         String[] strings = str.split("\\D+");
 
         int res = 0;
-        for(String s : strings){
-            if(!s.isEmpty())
+        for (String s : strings) {
+            if (!s.isEmpty())
                 res += Integer.parseInt(s);
         }
 

@@ -2,7 +2,7 @@ package Warmup;
 
 public class Warmup1 {
 
-    public static  void main(String[] args) {
+    public static void main(String[] args) {
         System.out.println("Warmup");
     }
 
@@ -236,14 +236,13 @@ public class Warmup1 {
      */
     public static int intMax(int a, int b, int c) {
         int max;
-        if(a > b){
+        if (a > b) {
             max = a;
-        }
-        else{
-            max =b;
+        } else {
+            max = b;
         }
 
-        if(c > max){
+        if (c > max) {
             return c;
         }
         return max;
@@ -256,10 +255,10 @@ public class Warmup1 {
     public static int close10(int a, int b) {
         int _a = Math.abs(10 - a);
         int _b = Math.abs(10 - b);
-        if (_a >  _b){
+        if (_a > _b) {
             return b;
         }
-        if (_a < _b){
+        if (_a < _b) {
             return a;
         }
         return 0;
@@ -271,22 +270,22 @@ public class Warmup1 {
     Given 2 int values, return true if they are both in the range 30..40 inclusive, or they are both in the range 40..50 inclusive.
      */
     public static boolean in3050(int a, int b) {
-        return (((a >=30 && a <=40))&&((b >=30 && b <=40)))||(((a >=40 && a <=50))&&((b >=40 && b <=50)));
+        return (((a >= 30 && a <= 40)) && ((b >= 30 && b <= 40))) || (((a >= 40 && a <= 50)) && ((b >= 40 && b <= 50)));
     }
 
     /*
     Given 2 positive int values, return the larger value that is in the range 10..20 inclusive, or return 0 if neither is in that range.
      */
     public static int max1020(int a, int b) {
-        if(!(a >= 10 && a <=20)){
+        if (!(a >= 10 && a <= 20)) {
             a = 0;
         }
 
-        if(!(b >= 10 && b <=20)){
+        if (!(b >= 10 && b <= 20)) {
             b = 0;
         }
 
-        if( a >= b){
+        if (a >= b) {
             return a;
         }
         return b;
@@ -298,12 +297,12 @@ public class Warmup1 {
      */
     public static boolean stringE(String str) {
         int counter = 0;
-        for(int i =0; i < str.length(); i++){
-            if(str.charAt(i) == 'e'){
-                counter ++;
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == 'e') {
+                counter++;
             }
         }
-        return (counter >= 1 && counter <=3);
+        return (counter >= 1 && counter <= 3);
     }
 
     /*
@@ -321,11 +320,11 @@ public class Warmup1 {
      */
 
     public static String endUp(String str) {
-        if(str.length() < 3){
+        if (str.length() < 3) {
             return str.toUpperCase();
         }
         int len = str.length();
-        return str.substring(0, len - 3) + str.substring(len -3, len).toUpperCase();
+        return str.substring(0, len - 3) + str.substring(len - 3, len).toUpperCase();
     }
 
     /*
@@ -334,7 +333,7 @@ public class Warmup1 {
      */
     public static String everyNth(String str, int n) {
         String stroka = "";
-        for(int i = 0; i < str.length(); i=i+n){
+        for (int i = 0; i < str.length(); i = i + n) {
             stroka += str.charAt(i);
         }
         return stroka;

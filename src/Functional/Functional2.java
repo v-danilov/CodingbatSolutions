@@ -89,14 +89,10 @@ public class Functional2 {
      */
     public List<Integer> square56(List<Integer> nums) {
         nums = nums.stream()
-                .map(n -> (int) (Math.pow(n,2) + 10))
+                .map(n -> (int) (Math.pow(n, 2) + 10))
                 .filter(n -> (n % 10 != 5 && n % 10 != 6)).collect(Collectors.toList());
         return nums;
     }
-
-
-
-
 
 
 }

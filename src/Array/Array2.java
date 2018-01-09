@@ -26,7 +26,7 @@ public class Array2 {
         int max = nums[0];
         int min = nums[0];
 
-        for(int i = 1; i < nums.length; i++){
+        for (int i = 1; i < nums.length; i++) {
             max = Math.max(max, nums[i]);
             min = Math.min(min, nums[i]);
         }
@@ -58,11 +58,10 @@ public class Array2 {
     public static int sum13(int[] nums) {
         int sum = 0;
 
-        for(int i = 0; i < nums.length; i++){
-            if(nums[i] == 13){
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 13) {
                 i = i + 1;
-            }
-            else{
+            } else {
                 sum += nums[i];
             }
         }
@@ -75,16 +74,15 @@ public class Array2 {
     public static int sum67(int[] nums) {
         int sum = 0;
 
-        for(int i = 0; i < nums.length; i++){
-            if(nums[i] == 6){
-                for(int j = i; j < nums.length; j++){
-                    if(nums[j] == 7){
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 6) {
+                for (int j = i; j < nums.length; j++) {
+                    if (nums[j] == 7) {
                         i = j;
                         break;
                     }
                 }
-            }
-            else{
+            } else {
                 sum += nums[i];
             }
         }
@@ -174,20 +172,19 @@ public class Array2 {
     /*We'll say that a value is "everywhere" in an array if for every pair of adjacent elements in the array, at least one of the pair is that value.
     Return true if the given value is everywhere in the array.*/
     public static boolean isEverywhere(int[] nums, int val) {
-        if(nums.length==0){
+        if (nums.length == 0) {
             return true;
         }
 
         int i;
-        if(nums[0] == val){
+        if (nums[0] == val) {
             i = 0;
-        }
-        else{
+        } else {
             i = 1;
         }
 
-        for(; i < nums.length; i +=2){
-            if(nums[i] != val){
+        for (; i < nums.length; i += 2) {
+            if (nums[i] != val) {
                 return false;
             }
         }
@@ -197,13 +194,13 @@ public class Array2 {
     /*Given an array of ints, return true if the array contains a 2 next to a 2 or a 4 next to a 4, but not both.*/
     public static boolean either24(int[] nums) {
         String str = Arrays.toString(nums);
-        return (str.contains("2, 2") && !str.contains("4, 4")) ||(!str.contains("2, 2") && str.contains("4, 4"));
+        return (str.contains("2, 2") && !str.contains("4, 4")) || (!str.contains("2, 2") && str.contains("4, 4"));
     }
 
     /*Given an array of ints, return true if the array contains two 7's next to each other, or there are two 7's separated by one element, such as with {7, 1, 7}.*/
     public static boolean has77(int[] nums) {
         String str = Arrays.toString(nums).replaceAll("\\[|\\]|,|\\s", "");
-        String tmp = str.replaceAll("(77)|(7.?7)","");
+        String tmp = str.replaceAll("(77)|(7.?7)", "");
 
         return !tmp.equals(str);
     }
@@ -225,11 +222,11 @@ public class Array2 {
 
     /*Given an array of ints, return true if the array contains either 3 even or 3 odd values all next to each other.*/
     public static boolean modThree(int[] nums) {
-        if(nums.length < 3)
+        if (nums.length < 3)
             return false;
 
-        for(int i = 0; i < nums.length - 2; i++) {
-            if(nums[i] % 2 == nums[i+1] % 2 && nums[i] % 2 == nums[i+2] % 2)
+        for (int i = 0; i < nums.length - 2; i++) {
+            if (nums[i] % 2 == nums[i + 1] % 2 && nums[i] % 2 == nums[i + 2] % 2)
                 return true;
         }
 
@@ -240,7 +237,7 @@ public class Array2 {
     /*Given an array of ints, return true if the value 3 appears in the array exactly 3 times, and no 3's are next to each other.*/
     public static boolean haveThree(int[] nums) {
         String str = Arrays.toString(nums).replaceAll("\\[|\\]|,|\\s", "");
-        String tmp = str.replaceAll("3[^3]3[^3]3","");
+        String tmp = str.replaceAll("3[^3]3[^3]3", "");
 
         return !tmp.equals(str) && !tmp.contains("3");
     }
@@ -248,14 +245,12 @@ public class Array2 {
 
     /*Given an array of ints, return true if every 2 that appears in the array is next to another 2.*/
     public static boolean twoTwo(int[] nums) {
-        int index =0;
-        for (int i=0; i<(nums.length); i++)
-        {
-            if(nums[i]==2)
-            {
+        int index = 0;
+        for (int i = 0; i < (nums.length); i++) {
+            if (nums[i] == 2) {
                 i++;
-                if(!(i<(nums.length)) || nums[i] !=2) return false;
-                while(i<nums.length && nums[i] ==2) i++;
+                if (!(i < (nums.length)) || nums[i] != 2) return false;
+                while (i < nums.length && nums[i] == 2) i++;
             }
         }
         return true;
@@ -267,7 +262,7 @@ public class Array2 {
     You may assume that n is in the range 0..nums.length inclusive.*/
     public static boolean sameEnds(int[] nums, int len) {
 
-        for (int i = 0; i < len; ++i){
+        for (int i = 0; i < len; ++i) {
             if (nums[i] != nums[nums.length - len + i])
                 return false;
         }
@@ -276,8 +271,8 @@ public class Array2 {
 
     /*Return true if the array contains, somewhere, three increasing adjacent numbers like .... 4, 5, 6, ... or 23, 24, 25.*/
     public static boolean tripleUp(int[] nums) {
-        for(int i = 0; i <= nums.length - 3; i++) {
-            if(nums[i] + 1 == nums[i+1] && nums[i+1] + 1 == nums[i+2])
+        for (int i = 0; i <= nums.length - 3; i++) {
+            if (nums[i] + 1 == nums[i + 1] && nums[i + 1] + 1 == nums[i + 2])
                 return true;
         }
 
@@ -288,9 +283,9 @@ public class Array2 {
     /*Given start and end numbers, return a new array containing the sequence of integers from start up to but not including end, so start=5 and end=10 yields {5, 6, 7, 8, 9}.
     The end number will be greater or equal to the start number. Note that a length-0 array is valid.*/
     public static int[] fizzArray3(int start, int end) {
-        int[] res= new int[end - start];
+        int[] res = new int[end - start];
 
-        for(int i = start; i < end; i++)
+        for (int i = start; i < end; i++)
             res[i - start] = i;
 
         return res;
@@ -298,13 +293,13 @@ public class Array2 {
 
     /*Return an array that is "left shifted" by one -- so {6, 2, 5, 3} returns {2, 5, 3, 6}. You may modify and return the given array, or return a new array.*/
     public static int[] shiftLeft(int[] nums) {
-        if(nums.length == 0){
+        if (nums.length == 0) {
             return nums;
         }
         int first = nums[0];
 
-        for(int i = 1; i < nums.length; i++){
-            nums[i - 1] = nums [i];
+        for (int i = 1; i < nums.length; i++) {
+            nums[i - 1] = nums[i];
         }
 
         nums[nums.length - 1] = first;
@@ -322,8 +317,7 @@ public class Array2 {
             if (nums[i] % 10 == 0) {
                 tmp = nums[i];
                 change = true;
-            }
-            else if (change && nums[i] % 10 != 0) {
+            } else if (change && nums[i] % 10 != 0) {
                 nums[i] = tmp;
             }
         }
@@ -360,9 +354,9 @@ public class Array2 {
     Return a version of the given array where every instance of the given value which is alone is replaced by whichever value to its left or right is larger.*/
     public static int[] notAlone(int[] nums, int val) {
         for (int i = 0; i < nums.length; i++) {
-            if (i > 0 && i < nums.length-1 && nums[i] == val) {
-                if (nums[i] != nums[i-1] && nums[i] != nums[i+1])
-                    nums[i] = Math.max(nums[i-1], nums[i+1]);
+            if (i > 0 && i < nums.length - 1 && nums[i] == val) {
+                if (nums[i] != nums[i - 1] && nums[i] != nums[i + 1])
+                    nums[i] = Math.max(nums[i - 1], nums[i + 1]);
 
             }
         }
@@ -405,7 +399,7 @@ public class Array2 {
     public static int[] zeroMax(int[] nums) {
         int max = 0;
 
-        for (int i = nums.length-1; i >= 0; i--) {
+        for (int i = nums.length - 1; i >= 0; i--) {
             if (nums[i] % 2 != 0)
                 max = Math.max(max, nums[i]);
             if (nums[i] == 0)
@@ -418,15 +412,14 @@ public class Array2 {
     Other than that, the numbers can be in any order. You may modify and return the given array, or make a new array.*/
     public static int[] evenOdd(int[] nums) {
         int even = 0;
-        int odd = nums.length-1;
+        int odd = nums.length - 1;
         int[] array = new int[nums.length];
 
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] % 2 == 0) {
                 array[even] = nums[i];
                 even++;
-            }
-            else {
+            } else {
                 array[odd] = nums[i];
                 odd--;
             }
@@ -439,12 +432,12 @@ public class Array2 {
     public static String[] fizzBuzz(int start, int end) {
         String[] arr = new String[end - start];
 
-        for(int i = start; i < end; i++) {
-            if(i % 15 == 0) {
+        for (int i = start; i < end; i++) {
+            if (i % 15 == 0) {
                 arr[i - start] = "FizzBuzz";
-            } else if(i % 3 == 0) {
+            } else if (i % 3 == 0) {
                 arr[i - start] = "Fizz";
-            } else if(i % 5 == 0) {
+            } else if (i % 5 == 0) {
                 arr[i - start] = "Buzz";
             } else {
                 arr[i - start] = String.valueOf(i);
@@ -453,12 +446,6 @@ public class Array2 {
 
         return arr;
     }
-
-
-
-
-
-
 
 
 }

@@ -16,15 +16,15 @@ public class String2 {
     /*Return the number of times that the string "hi" appears anywhere in the given string.*/
     public static int countHi(String str) {
         String findStr = "hi";
-        return str.split(findStr, -2).length-1;
+        return str.split(findStr, -2).length - 1;
     }
 
     /*Return true if the string "cat" and "dog" appear the same number of times in the given string.*/
     public static boolean catDog(String str) {
         String findStr = "cat";
-        int c = str.split(findStr, -1).length-1;
+        int c = str.split(findStr, -1).length - 1;
         findStr = "dog";
-        int d = str.split(findStr, -1).length-1;
+        int d = str.split(findStr, -1).length - 1;
         return c == d;
     }
 
@@ -33,7 +33,7 @@ public class String2 {
         int i = 0;
         str = str.replaceAll("co.e", "code");
 
-        while(str.contains("code")){
+        while (str.contains("code")) {
             str = str.replaceFirst("code", "");
             i++;
         }
@@ -45,14 +45,14 @@ public class String2 {
     Note: str.toLowerCase() returns the lowercase version of a string.*/
     public static boolean endOther(String a, String b) {
         String aLower = a.toLowerCase();
-        String  bLower = b.toLowerCase();
+        String bLower = b.toLowerCase();
 
         int lastIndex1 = aLower.lastIndexOf(bLower);
         int lastIndex2 = bLower.lastIndexOf(aLower);
 
-        if(lastIndex1 == -1 && lastIndex2 == -1){
+        if (lastIndex1 == -1 && lastIndex2 == -1) {
             return false;
-        };
+        }
         return (lastIndex1 + b.length() == a.length()
                 || lastIndex2 + a.length() == b.length());
     }
@@ -78,29 +78,25 @@ public class String2 {
         int lastIndexX = str.lastIndexOf('x');
         int lastIndexY = str.lastIndexOf('y');
 
-        if(lastIndexY < lastIndexX){
-            return false;
-        }
-        return true;
+        return lastIndexY >= lastIndexX;
     }
 
     /*Given two strings, a and b, create a bigger string made of the first char of a, the first char of b, the second char of a, the second char of b, and so on.
     Any leftover chars go at the end of the result.*/
     public static String mixString(String a, String b) {
         int c;
-        if(a.length() > b.length()){
+        if (a.length() > b.length()) {
             c = a.length();
-        }
-        else{
+        } else {
             c = b.length();
         }
 
         String ret = "";
-        for(int i = 0; i < c; i++){
+        for (int i = 0; i < c; i++) {
             if (i <= a.length() - 1)
-                ret += a.substring(i,i+1);
-            if (i <= b.length()-1)
-                ret += b.substring(i,i+1);
+                ret += a.substring(i, i + 1);
+            if (i <= b.length() - 1)
+                ret += b.substring(i, i + 1);
         }
         return ret;
     }
@@ -109,8 +105,8 @@ public class String2 {
     You may assume that n is between 0 and the length of the string, inclusive.*/
     public static String repeatEnd(String str, int n) {
         String rep = "";
-        for(int i = 0; i < n; i++){
-            rep += str.substring(str.length() - n ,str.length());
+        for (int i = 0; i < n; i++) {
+            rep += str.substring(str.length() - n, str.length());
         }
         return rep;
     }
@@ -120,7 +116,7 @@ public class String2 {
     You may assume that n is between 0 and the length of the string, inclusive (i.e. n >= 0 and n <= str.length()).*/
     public static String repeatFront(String str, int n) {
         String ret = "";
-        while(n > 0){
+        while (n > 0) {
             ret += str.substring(0, n);
             n--;
         }
@@ -133,11 +129,11 @@ public class String2 {
         String ret = word;
         String sepStr = sep + word;
 
-        if(count == 0){
+        if (count == 0) {
             return "";
         }
 
-        for(int i = 1; i < count; i++){
+        for (int i = 1; i < count; i++) {
             ret += sepStr;
         }
 
@@ -160,9 +156,9 @@ public class String2 {
         int len = str.length();
         if (len < 3) return false;
         if (len % 2 == 1)
-            return str.substring(len/2 - 1, len/2 + 2).equals("xyz");
-        return str.substring(len/2 - 2, len/2 + 1).equals("xyz")
-                || str.substring(len/2 - 1, len/2 + 2).equals("xyz");
+            return str.substring(len / 2 - 1, len / 2 + 2).equals("xyz");
+        return str.substring(len / 2 - 2, len / 2 + 1).equals("xyz")
+                || str.substring(len / 2 - 1, len / 2 + 2).equals("xyz");
 
     }
 
@@ -171,7 +167,7 @@ public class String2 {
     public static String getSandwich(String str) {
         int first = str.indexOf("bread");
         int last = str.lastIndexOf("bread");
-        if(first == last){
+        if (first == last) {
             return "";
         }
         return str.substring(first + 5, last);
@@ -180,9 +176,9 @@ public class String2 {
     /*Returns true if for every '*' (star) in the string, if there are chars both immediately before and after the star, they are the same.*/
     public static boolean sameStarChar(String str) {
         boolean check = true;
-        for(int i = 1; i < str.length() - 1; i++){
-            if(str.charAt(i) == '*'){
-                if(str.charAt(i-1) != str.charAt(i+1)){
+        for (int i = 1; i < str.length() - 1; i++) {
+            if (str.charAt(i) == '*') {
+                if (str.charAt(i - 1) != str.charAt(i + 1)) {
                     check = false;
                     break;
                 }
@@ -198,11 +194,10 @@ public class String2 {
         String tmp = "";
 
         int i;
-        for(i = 0; i < str.length(); i+=3){
-            if(i + 3 <= str.length()){
-                tmp = str.substring(i + 1,i + 3) + str.substring(i,i + 1);
-            }
-            else{
+        for (i = 0; i < str.length(); i += 3) {
+            if (i + 3 <= str.length()) {
+                tmp = str.substring(i + 1, i + 3) + str.substring(i, i + 1);
+            } else {
                 tmp = "";
             }
 
@@ -231,12 +226,12 @@ public class String2 {
         int end = str.indexOf(word);
         while (end != -1) {
             for (int i = start; i < end; i++)
-                str = str.substring(0,i) + "+" + str.substring(i + 1);
+                str = str.substring(0, i) + "+" + str.substring(i + 1);
             start = end + word.length();
             end = str.indexOf(word, start);
         }
         for (int i = start; i < str.length(); i++)
-            str = str.substring(0,i) + "+" + str.substring(i+1);
+            str = str.substring(0, i) + "+" + str.substring(i + 1);
         return str;
     }
 
@@ -248,22 +243,17 @@ public class String2 {
         int index = 0;
         index = str.indexOf(word);
 
-        while(index!= -1){
-            if(index != 0){
+        while (index != -1) {
+            if (index != 0) {
                 res += str.charAt(index - 1);
             }
-            if(index + word.length() != str.length()){
+            if (index + word.length() != str.length()) {
                 res += str.charAt(index + word.length());
             }
-            index = str.indexOf(word, index + word.length() );
+            index = str.indexOf(word, index + word.length());
         }
         return res;
     }
-
-    
-
-
-
 
 
 }

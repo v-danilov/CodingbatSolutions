@@ -23,14 +23,14 @@ public class Logic2 {
     /*Given 3 int values, a b c, return their sum. However, if one of the values is the same as another of the values, it does not count towards the sum.*/
     public static int loneSum(int a, int b, int c) {
         int sum = 0;
-        if(a != b &&  a != c){
+        if (a != b && a != c) {
             sum += a;
         }
-        if(b != c && b != a){
+        if (b != c && b != a) {
             sum += b;
         }
 
-        if(b != c && c != a){
+        if (b != c && c != a) {
             sum += c;
         }
         return sum;
@@ -48,7 +48,7 @@ public class Logic2 {
         else if (c == 13)
             return a + b;
         else
-            return a + b +c;
+            return a + b + c;
     }
 
     /*Given 3 int values, a b c, return their sum.
@@ -60,8 +60,9 @@ public class Logic2 {
     public static int noTeenSum(int a, int b, int c) {
         return fixTeen(a) + fixTeen(b) + fixTeen(c);
     }
+
     public static int fixTeen(int n) {
-        if ( (n >=13 && n < 15) || (n > 16 && n <= 19) )
+        if ((n >= 13 && n < 15) || (n > 16 && n <= 19))
             return 0;
         else
             return n;
@@ -77,22 +78,22 @@ public class Logic2 {
 
     public static int round10(int n) {
         if (n % 10 < 5)
-            return n - (n%10);
+            return n - (n % 10);
         else
-            return n + (10 - (n%10));
+            return n + (10 - (n % 10));
     }
 
     /*Given three ints, a b c, return true if one of b or c is "close" (differing from a by at most 1),
      while the other is "far", differing from both other values by 2 or more.
     Note: Math.abs(num) computes the absolute value of a number.*/
     public static boolean closeFar(int a, int b, int c) {
-        if(Math.abs(a-b) == 1 || Math.abs(a-b) == 0){
-            if(Math.abs(c -a) >= 2 && Math.abs(c-b) >= 2){
+        if (Math.abs(a - b) == 1 || Math.abs(a - b) == 0) {
+            if (Math.abs(c - a) >= 2 && Math.abs(c - b) >= 2) {
                 return true;
             }
         }
-        if(Math.abs(a-c) == 1){
-            if(Math.abs(a - b) >= 2 && Math.abs(c-b) >= 2){
+        if (Math.abs(a - c) == 1) {
+            if (Math.abs(a - b) >= 2 && Math.abs(c - b) >= 2) {
                 return true;
             }
         }
@@ -104,7 +105,7 @@ public class Logic2 {
     public static int blackjack(int a, int b) {
         if (a > 21 && b > 21) {
             return 0;
-        }else if (a > 21) {
+        } else if (a > 21) {
             return b;
         } else if (b > 21) {
             return a;
@@ -139,21 +140,19 @@ public class Logic2 {
     Return -1 if it can't be done.*/
     public static int makeChocolate(int small, int big, int goal) {
         int parts = goal / 5;
-        if (parts > big){
+        if (parts > big) {
             if (5 * big + small >= goal) {
                 return goal - 5 * big;
-            }else{
+            } else {
                 return -1;
             }
         }
-        if( 5 * parts + small >= goal){
+        if (5 * parts + small >= goal) {
             return goal - 5 * parts;
-        }
-        else{
-            return - 1;
+        } else {
+            return -1;
         }
     }
-
 
 
 }
